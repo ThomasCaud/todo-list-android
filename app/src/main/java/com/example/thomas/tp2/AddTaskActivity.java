@@ -45,12 +45,21 @@ public class AddTaskActivity extends AppCompatActivity {
         EditText label = findViewById(R.id.etLabel);
         label.setText("");
 
+        // Statut
         RadioButton rbTodo = findViewById(R.id.rbTodo);
         RadioButton rbDoing = findViewById(R.id.rbDoing);
         RadioButton rbDone = findViewById(R.id.rbDone);
         rbTodo.setChecked(false);
         rbDoing.setChecked(false);
         rbDone.setChecked(false);
+
+        // Priority
+        RadioButton rbLow = findViewById(R.id.rbLow);
+        RadioButton rbMedium = findViewById(R.id.rbMedium);
+        RadioButton rbHigh = findViewById(R.id.rbHigh);
+        rbLow.setChecked(false);
+        rbMedium.setChecked(false);
+        rbHigh.setChecked(false);
     }
 
     private void setClearButtonListener() {
@@ -74,6 +83,12 @@ public class AddTaskActivity extends AppCompatActivity {
             if(rgStatus.getCheckedRadioButtonId() == -1) {
                 Toast.makeText(getApplicationContext(), "Le statut doit être renseigné", Toast.LENGTH_LONG).show();
                 isValid = false;
+            } else {
+                RadioGroup rgPriority = findViewById(R.id.rgPriority);
+                if(rgPriority.getCheckedRadioButtonId() == -1) {
+                    Toast.makeText(getApplicationContext(), "La priorité doit être renseignée", Toast.LENGTH_LONG).show();
+                    isValid = false;
+                }
             }
         }
 
@@ -94,6 +109,20 @@ public class AddTaskActivity extends AppCompatActivity {
         }
     }
 
+    private Task.PRIORITY getCheckedPriority() {
+        RadioButton rbLow = findViewById(R.id.rbLow);
+        if(rbLow.isChecked()) {
+            return Task.PRIORITY.LOW;
+        } else {
+            RadioButton rbMedium = findViewById(R.id.rbMedium);
+            if(rbMedium.isChecked()) {
+                return Task.PRIORITY.MEDIUM;
+            } else {
+                return Task.PRIORITY.HIGH;
+            }
+        }
+    }
+
     private void setCreateButtonListener() {
         Button button = findViewById(R.id.create);
         button.setOnClickListener(new View.OnClickListener() {
@@ -102,7 +131,7 @@ public class AddTaskActivity extends AppCompatActivity {
                 if(isValidTask()) {
                     EditText label = findViewById(R.id.etLabel);
 
-                     Task newTask = new Task(label.getText().toString(), getCheckedStatut(), Task.PRIORITY.LOW, new Date());
+                    Task newTask = new Task(label.getText().toString(), getCheckedStatut(), getCheckedPriority(), new Date());
 
                     ArrayList<Task> tasks = getTasks();
                     tasks.add(newTask);

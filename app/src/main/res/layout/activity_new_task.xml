@@ -63,10 +63,44 @@
                 android:text="@string/done"/>
         </RadioGroup>
 
+
+        <TextView
+            android:id="@+id/tvPriority"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/priority"
+            android:textSize="@dimen/size_primary"
+            android:layout_marginTop="@dimen/between_item"/>
+
+        <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/rgPriority"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <RadioButton android:id="@+id/rbLow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/between_item"
+                android:textSize="@dimen/sizeRbItem"
+                android:text="@string/low"/>
+
+            <RadioButton android:id="@+id/rbMedium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/between_item"
+                android:textSize="@dimen/sizeRbItem"
+                android:text="@string/medium"/>
+
+            <RadioButton android:id="@+id/rbHigh"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/between_item"
+                android:textSize="@dimen/sizeRbItem"
+                android:text="@string/high"/>
+        </RadioGroup>
     </LinearLayout>
-
-
-
 
     <RelativeLayout
         android:layout_width="match_parent"

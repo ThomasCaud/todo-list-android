@@ -14,4 +14,7 @@
     <string name="previous">Précédent</string>
     <string name="remove">Effacer</string>
     <string name="create">Créer</string>
+    <string name="low">Basse</string>
+    <string name="medium">Moyenne</string>
+    <string name="high">Haute</string>
 </resources>

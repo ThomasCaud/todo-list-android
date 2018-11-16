@@ -7,10 +7,10 @@ import java.util.Date;
 public class Task implements Serializable {
     public enum STATUS {
         TODO, DOING, DONE
-    };
+    }
     public enum PRIORITY {
         LOW, MEDIUM, HIGH
-    };
+    }
     public String label;
     public STATUS status;
     public PRIORITY priority;
