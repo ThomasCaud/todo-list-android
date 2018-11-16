@@ -4,7 +4,7 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
 
-    <color name="advancement_GOOD">#ADFF2F</color>
-    <color name="advancement_MEDIUM">#FFA500</color>
+    <color name="advancement_GOOD">#89E200</color>
+    <color name="advancement_MEDIUM">#FF812F</color>
     <color name="advancement_BAD">#FF0000</color>
 </resources>
