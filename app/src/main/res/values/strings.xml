@@ -2,18 +2,26 @@
     <string name="app_name">TP2 - A todo list</string>
     <string name="add_task">Ajouter une tâche</string>
     <string name="label">Libellé</string>
+
     <string name="statusSep">Statut - </string>
     <string name="prioritySep">Priorité - </string>
     <string name="deadlineSep">Echéance - </string>
+
     <string name="status">Statut</string>
     <string name="priority">Priorité</string>
     <string name="deadline">Echéance</string>
+
     <string name="todo">A faire</string>
     <string name="doing">En cours</string>
     <string name="done">Fait</string>
+
+    <string name="doneBtn">✔</string>
+    <string name="delete">✘</string>
+
     <string name="previous">Précédent</string>
     <string name="remove">Effacer</string>
     <string name="create">Créer</string>
+
     <string name="low">Basse</string>
     <string name="medium">Moyenne</string>
     <string name="high">Haute</string>

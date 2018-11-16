@@ -101,7 +101,7 @@ public class AddTaskActivity extends AppCompatActivity {
                     isValid = false;
                 } else {
 
-                    if(selectedDate.before(new Date().)) {
+                    if(selectedDate.before(new Date())) {
                         // date checking
                         Toast.makeText(getApplicationContext(), "La date d'échéance ne peut pas être antérieure à la date du jour", Toast.LENGTH_LONG).show();
                         isValid = false;

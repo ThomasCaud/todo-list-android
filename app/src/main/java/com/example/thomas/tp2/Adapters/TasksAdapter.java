@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.thomas.tp2.R;
@@ -14,8 +15,11 @@ import com.example.thomas.tp2.model.Task;
 import java.util.ArrayList;
 
 public class TasksAdapter extends ArrayAdapter<Task> {
+    private ArrayList<Task> tasks;
+
     public TasksAdapter(Context context, ArrayList<Task> tasks) {
         super(context, 0, tasks);
+        this.tasks = tasks;
     }
 
     private int getStatusColor(View v, Task.STATUS s) {
@@ -41,12 +45,23 @@ public class TasksAdapter extends ArrayAdapter<Task> {
     }
 
     private void setAddButtonListener(final int position, final View convertView) {
-        Button doneButton = convertView.findViewById(R.id.task_done);
+        Button doneButton = convertView.findViewById(R.id.taskDone);
         doneButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Task task = getItem(position);
                 task.setStatus(Task.STATUS.DONE);
+                notifyDataSetChanged();
+            }
+        });
+    }
+
+    private void setDeleteButtonListener(final int position, final View convertView) {
+        Button deleteButton = convertView.findViewById(R.id.deleteTask);
+        deleteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                tasks.remove(position);
                 notifyDataSetChanged();
             }
         });
@@ -77,6 +92,7 @@ public class TasksAdapter extends ArrayAdapter<Task> {
         tvDate.setText(task.getDate());
 
         setAddButtonListener(position, convertView);
+        setDeleteButtonListener(position, convertView);
 
         return convertView;
     }

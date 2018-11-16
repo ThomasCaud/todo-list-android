@@ -32,7 +32,8 @@ public class MainActivity extends AppCompatActivity {
 
     private ArrayList<Task> getInitTasks() {
         return new ArrayList<Task>() {{
-            add(new Task("Tâche 1", Task.STATUS.TODO, Task.PRIORITY.MEDIUM, new Date()));
+            add(new Task("Finir le TP Android", Task.STATUS.DONE, Task.PRIORITY.MEDIUM, new Date()));
+            add(new Task("S'entraîner au TOEIC", Task.STATUS.TODO, Task.PRIORITY.HIGH, new Date()));
         }};
     }
 
