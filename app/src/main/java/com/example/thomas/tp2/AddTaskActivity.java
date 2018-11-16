@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CalendarView;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -13,9 +14,12 @@ import android.widget.Toast;
 import com.example.thomas.tp2.model.Task;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 
 public class AddTaskActivity extends AppCompatActivity {
+    private Date selectedDate;
+
     private void goToMainPage(ArrayList<Task> tasks) {
         Intent newIntent = new Intent(AddTaskActivity.this, MainActivity.class);
         Bundle args = new Bundle();
@@ -60,6 +64,10 @@ public class AddTaskActivity extends AppCompatActivity {
         rbLow.setChecked(false);
         rbMedium.setChecked(false);
         rbHigh.setChecked(false);
+
+        // Deadline
+        CalendarView cvDeadline = findViewById(R.id.cvDeadline);
+        cvDeadline.setDate(new Date().getTime());
     }
 
     private void setClearButtonListener() {
@@ -76,18 +84,28 @@ public class AddTaskActivity extends AppCompatActivity {
         boolean isValid = true;
         EditText label = findViewById(R.id.etLabel);
         if(label.getText().toString().length() == 0) {
+            // label checking
             Toast.makeText(getApplicationContext(), "Le label doit être renseigné", Toast.LENGTH_LONG).show();
             isValid = false;
         } else {
             RadioGroup rgStatus = findViewById(R.id.rgStatus);
             if(rgStatus.getCheckedRadioButtonId() == -1) {
+                // statut checking
                 Toast.makeText(getApplicationContext(), "Le statut doit être renseigné", Toast.LENGTH_LONG).show();
                 isValid = false;
             } else {
                 RadioGroup rgPriority = findViewById(R.id.rgPriority);
                 if(rgPriority.getCheckedRadioButtonId() == -1) {
+                    // priority checking
                     Toast.makeText(getApplicationContext(), "La priorité doit être renseignée", Toast.LENGTH_LONG).show();
                     isValid = false;
+                } else {
+
+                    if(selectedDate.before(new Date().)) {
+                        // date checking
+                        Toast.makeText(getApplicationContext(), "La date d'échéance ne peut pas être antérieure à la date du jour", Toast.LENGTH_LONG).show();
+                        isValid = false;
+                    }
                 }
             }
         }
@@ -131,13 +149,28 @@ public class AddTaskActivity extends AppCompatActivity {
                 if(isValidTask()) {
                     EditText label = findViewById(R.id.etLabel);
 
-                    Task newTask = new Task(label.getText().toString(), getCheckedStatut(), getCheckedPriority(), new Date());
+                    Task newTask = new Task(label.getText().toString(), getCheckedStatut(), getCheckedPriority(), selectedDate);
 
                     ArrayList<Task> tasks = getTasks();
                     tasks.add(newTask);
 
                     goToMainPage(tasks);
                 }
+            }
+        });
+    }
+
+    private void setDeadlineListener() {
+        CalendarView cvDeadline = findViewById(R.id.cvDeadline);
+        selectedDate = new Date();
+
+        cvDeadline.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+            @Override
+            public void onSelectedDayChange(CalendarView view, int year, int month, int day) {
+                Calendar c = Calendar.getInstance();
+                c.set(year, month, day);
+                long eventOccursOn =  c.getTimeInMillis();
+                selectedDate = new Date(eventOccursOn);
             }
         });
     }
@@ -150,5 +183,6 @@ public class AddTaskActivity extends AppCompatActivity {
         setPreviousButtonListener();
         setClearButtonListener();
         setCreateButtonListener();
+        setDeadlineListener();
     }
 }

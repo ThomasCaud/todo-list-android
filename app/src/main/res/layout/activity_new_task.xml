@@ -100,6 +100,19 @@
                 android:textSize="@dimen/sizeRbItem"
                 android:text="@string/high"/>
         </RadioGroup>
+
+        <TextView
+            android:id="@+id/tvDeadline"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/deadline"
+            android:textSize="@dimen/size_primary"
+            android:layout_marginTop="@dimen/between_item"/>
+
+        <CalendarView
+            android:id="@+id/cvDeadline"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"/>
     </LinearLayout>
 
     <RelativeLayout
