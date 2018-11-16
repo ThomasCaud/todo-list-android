@@ -30,7 +30,6 @@ public class TasksAdapter extends ArrayAdapter<Task> {
     }
 
     private int getPriorityColor(View v, Task.PRIORITY t) {
-        // todo use colors.xml
         switch(t) {
             case HIGH:
                 return v.getResources().getColor(R.color.advancement_BAD);
