@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">TP2 - A todo list</string>
+    <string name="add_task">Ajouter une tâche</string>
+    <string name="label">Libellé</string>
+    <string name="status">Status - </string>
+    <string name="priority">Priorité - </string>
+    <string name="deadline">Echéance -</string>
+    <string name="done">Fait</string>
+    <string name="previous">Précédent</string>
+    <string name="remove">Effacer</string>
+    <string name="create">Créer</string>
+</resources>
