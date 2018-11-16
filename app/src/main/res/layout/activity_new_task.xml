@@ -26,11 +26,54 @@
             android:layout_height="wrap_content"
             android:singleLine="true"/>
 
+        <TextView
+            android:id="@+id/tvStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/status"
+            android:textSize="@dimen/size_primary"
+            android:layout_marginTop="@dimen/between_item"/>
+
+        <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/rgStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <RadioButton android:id="@+id/rbTodo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/between_item"
+                android:textSize="@dimen/sizeRbItem"
+                android:text="@string/todo"/>
+
+            <RadioButton android:id="@+id/rbDoing"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/between_item"
+                android:textSize="@dimen/sizeRbItem"
+                android:text="@string/doing"/>
+
+            <RadioButton android:id="@+id/rbDone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/between_item"
+                android:textSize="@dimen/sizeRbItem"
+                android:text="@string/done"/>
+        </RadioGroup>
+
     </LinearLayout>
+
+
+
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        >
+        android:gravity="bottom|center"
+        android:layout_alignParentBottom="true"
+    >
         <Button
             android:id="@+id/previous"
             android:layout_width="wrap_content"

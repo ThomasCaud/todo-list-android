@@ -32,7 +32,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/status"
+            android:text="@string/statusSep"
             android:textSize="@dimen/size_item"
             />
         <TextView
@@ -53,7 +53,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/priority"
+            android:text="@string/prioritySep"
             android:textSize="@dimen/size_item"
             />
         <TextView
@@ -73,7 +73,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/deadline"
+            android:text="@string/deadlineSep"
             android:textSize="@dimen/size_item"
             />
         <TextView
@@ -82,7 +82,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/between_item"
             android:layout_marginStart="@dimen/between_item"
-            android:text="@string/deadline"
+            android:text="@string/deadlineSep"
             android:textSize="@dimen/size_item" />
     </LinearLayout>
 </LinearLayout>

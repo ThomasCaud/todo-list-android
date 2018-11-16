@@ -6,4 +6,5 @@
     <dimen name="between_item">5dp</dimen>
     <dimen name="size_primary">30sp</dimen>
     <dimen name="size_item">25sp</dimen>
+    <dimen name="sizeRbItem">20sp</dimen>
 </resources>
